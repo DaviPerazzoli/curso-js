@@ -16,8 +16,7 @@
         var res = document.querySelector('div#res')
 
         function calcular(){
-            var tvel = document.getElementById('txtvel')
-            var vel = Number(tvel.value)
+            var vel = Number(document.getElementById('txtvel').value)
             if(vel > 80){
                 res.innerText = "Você foi multado"
             }else{
