@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+    Valocidade do carro: <input type="number" name="txtvel" id="txtvel">km/h <br>
+    <input type="button" value="Verificar" onclick="calcular()">
+
+    <div id="res"></div>
+
+    <script>
+        var res = document.querySelector('div#res')
+
+        function calcular(){
+            var tvel = document.getElementById('txtvel')
+            var vel = Number(tvel.value)
+            if(vel > 80){
+                res.innerText = "Você foi multado"
+            }else{
+                res.innerText = "Você está dentro do limite"
+            }
+        }
+    </script>
+</body>
+</html>
