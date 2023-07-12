@@ -13,11 +13,13 @@ function verificar(){
         var img = document.createElement('img')
         img.setAttribute('id', 'foto')
         img.setAttribute('src', 'imagem.jpg')
+        
         if(fsex[0].checked){
             genero = 'Homem'
         }else{
             genero = 'Mulher'
         }
+
         res.style.textAlign = 'center'
         res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
         res.appendChild(img)
