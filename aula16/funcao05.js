@@ -1,4 +1,4 @@
-function fatorial(n){ // !RECURSIVIDADE
+function fatorial(n){ // ! RECURSIVIDADE
     if(n == 1){
         return 1
     }else{
