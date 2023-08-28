@@ -19,4 +19,3 @@ for(i of num){
 for(o of objs){
     o.innerText = 'ola'
 }
-
