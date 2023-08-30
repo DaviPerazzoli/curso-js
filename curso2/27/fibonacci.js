@@ -1,23 +1,27 @@
 function* fibonacciGenerator(numero){
-    let x = 0
-    let seq1 = 0
-    let seq2 = 1
+    if(numero <=0){
+        return
+    }
+
+    let primeiro = 0
+    let segundo = 1
+    yield primeiro
+
+    if(numero >= 2){
+        yield segundo
+    }
     
-    while(x < numero){
-        if(x == 1){
-            yield seq1
-        }else if(x == 2){
-            yield seq2
-        }
-        res = seq1 + seq2
+    let c = 0
+    while(c < numero - 2){
+        let res = primeiro + segundo
         yield res
-        seq1 = seq2
-        seq2 = res
-        x++
+        primeiro = segundo
+        segundo = res
+        c++
     }
 }
 
-const gen = fibonacciGenerator(7)
+const gen = fibonacciGenerator(1)
 
 for(const num of gen){
     console.log(num)
