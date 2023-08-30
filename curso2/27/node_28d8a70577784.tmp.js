@@ -6,8 +6,10 @@ function* fibonacciGenerator(numero){
     while(x < numero){
         if(x == 1){
             yield seq1
+            continue
         }else if(x == 2){
             yield seq2
+            continue
         }
         res = seq1 + seq2
         yield res
