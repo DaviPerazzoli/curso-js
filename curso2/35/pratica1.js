@@ -12,15 +12,18 @@ const copiar = ()=>{
     itens.map((el)=>{
         const classes = [...el.classList]
         let selecionado = false
+
         classes.map((el)=>{
             if(el == 'destaque'){
                 selecionado = true
             }
         })
+
         if(!selecionado){
             caixa1.appendChild(el)
         }
     })
+    
     selecionados.map((el)=>{
         caixa2.appendChild(el)
     })
