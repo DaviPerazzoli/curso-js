@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+body, html{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+main{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.curso{
+    width: 200px;
+    border: 2px solid rgb(155, 155, 155);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.curso:hover{
+    border-color: red;
+}
+
+.c1{
+    background-color: lightgray;
+}
+
+.c2{
+    background-color: rgb(65, 63, 63);
+    color: white;
+}
+
+.destaque{
+    background-color: darkred !important;
+    border-color: red;
+    color: white !important;
+}
+
+.caixa{
+    border: 5px solid black;
+    width: 300px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#btnCopiar{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    align-self: center;
+    border-radius: 10px;
+}
