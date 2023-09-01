@@ -9,21 +9,27 @@ const selecionar = (elemento)=>{
 
 const copiar = ()=>{
     const selecionados = [...document.getElementsByClassName('destaque')]
-    itens.map((el)=>{
-        const classes = [...el.classList]
-        let selecionado = false
+    const naoSelecionados = [...document.querySelectorAll('.curso:not(.destaque)')]
+    /*
+    * itens.map((el)=>{
+    *     const classes = [...el.classList]
+    *     let selecionado = false
 
-        classes.map((el)=>{
-            if(el == 'destaque'){
-                selecionado = true
-            }
-        })
+    *     classes.map((el)=>{
+    *         if(el == 'destaque'){
+    *             selecionado = true
+    *         }
+    *     })
 
-        if(!selecionado){
-            caixa1.appendChild(el)
-        }
+    *     if(!selecionado){
+    *         caixa1.appendChild(el)
+    *     }
     })
-    
+    */
+    naoSelecionados.map((el)=>{
+        caixa1.appendChild(el)
+    })
+
     selecionados.map((el)=>{
         caixa2.appendChild(el)
     })
