@@ -3,6 +3,7 @@ const btn_c=[...document.querySelectorAll('.curso')]
 const c1_2=document.querySelector('#c1_2')
 const cursos=['HTML', 'CSS', 'Javascript', 'PHP', 'My SQL', 'React Native']
 const btnCursoSelecionado=document.getElementById('btnCursoSelecionado')
+const btnRemoveCurso=document.getElementById('btnRemoverCurso')
 
 cursos.map((el, chave)=>{
     const novoElemento=document.createElement('div')
@@ -24,13 +25,38 @@ cursos.map((el, chave)=>{
     caixaCursos.appendChild(novoElemento)
 })
 
-btnCursoSelecionado.addEventListener('click', (evt)=>{
+const radioSelecionado=()=>{
     const todosRadios=[...document.querySelectorAll('input[type=radio]')]
-    let radioSelecionado=todosRadios.filter((ele)=>{
+    const radioSelecionado=todosRadios.filter((ele)=>{
         return ele.checked
     })[0]
-    //const cursoSelecionado=radioSelecionado.parentNode.parentNode.firstChild
-    const cursoSelecionado=radioSelecionado.parentNode.previousSibling.textContent
-    alert(`Curso selecionado: ${cursoSelecionado}`)
-    
+    return radioSelecionado
+}
+
+btnCursoSelecionado.addEventListener('click', (evt)=>{
+    let rs = radioSelecionado()
+    try{
+        //const cursoSelecionado=radioSelecionado.parentNode.parentNode.firstChild
+        const cursoSelecionado=rs.parentNode.previousSibling.textContent
+        alert(`Curso selecionado: ${cursoSelecionado}`)
+    }catch(ex){
+        alert("Nenhum curso foi selecionado!")
+    }
+    // if(rs!=undefined){
+    //     //const cursoSelecionado=radioSelecionado.parentNode.parentNode.firstChild
+    //     const cursoSelecionado=rs.parentNode.previousSibling.textContent
+    //     alert(`Curso selecionado: ${cursoSelecionado}`)
+    // }else{
+    //     alert("Nenhum curso foi selecionado!")
+    // }
+})
+
+btnRemoveCurso.addEventListener('click', (evt)=>{
+    let rs = radioSelecionado()
+    try{
+        const cursoSelecionado=rs.parentNode.parentNode
+        cursoSelecionado.remove()
+    }catch(ex){
+        alert("Nenhum curso foi selecionado!")
+    }
 })
