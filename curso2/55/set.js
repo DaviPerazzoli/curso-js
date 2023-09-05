@@ -16,3 +16,7 @@ console.log(musicas)
 for(let m of musicas){
     caixa.innerHTML+=m+"<br>"
 }
+
+let vetor = new Array('oi', 1, 2)
+
+console.log(vetor)
