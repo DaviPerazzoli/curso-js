@@ -1,0 +1,25 @@
+*{
+    padding: 0px;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.cinza{
+    background-color: rgb(201, 201, 201);
+}
+
+
+button{
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(201, 201, 201);
+    margin: 10px;
+    cursor: pointer;
+}
