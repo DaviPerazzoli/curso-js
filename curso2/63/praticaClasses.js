@@ -40,36 +40,45 @@ const f_tipoNormal=document.getElementById('f_tipoNormal')
 const f_blindagem=document.querySelector('#f_blindagem')
 const f_municao=document.querySelector('#f_municao')
 const btn_addCarro = document.querySelector('#btn_addCarro')
-
+const f_nome = document.getElementById('f_nome')
+const f_portas = document.getElementById('f_portas')
+const saida=document.querySelector('.carros')
 let carros=[]
 
-btn_addCarro.addEventListener('click', (evt)=>{
-    const f_nome = document.getElementById('f_nome')
-    const f_portas = document.getElementById('f_portas')
-    const saida=document.querySelector('.carros')
-    saida.innerHTML=''
+f_nome.focus()
 
+const mostrarCarros=()=>{
+    saida.innerHTML=''
+    carros.map((el)=>{
+        const carro=document.createElement('div')
+        carro.setAttribute('class', 'carro')
+        carro.innerHTML=`Nome: ${el.nome}<br>Portas: ${el.portas}`
+
+        if(el.blindagem!=undefined){
+            carro.innerHTML+=`<br>Blindagem: ${el.blindagem}<br>Munição: ${el.munição}`
+        }
+
+        saida.appendChild(carro)
+
+        f_nome.value=null
+        f_blindagem.value=null
+        f_municao.value=null
+        f_portas.value=null
+
+        f_nome.focus()
+    })
+}
+
+btn_addCarro.addEventListener('click', (evt)=>{
     if(f_tipoNormal.checked){
         const c = new Carro(f_nome.value, Number(f_portas.value))
         carros.push(c)
-        carros.map((el)=>{
-            const carro=document.createElement('div')
-            carro.setAttribute('class', 'carro')
-            carro.innerHTML=`Nome: ${el.nome}<br>Portas: ${el.portas}`
-            saida.appendChild(carro)
-        })
     }else if(f_tipoMilitar.checked){
         const c=new Militar(f_nome.value, Number(f_portas.value), Number(f_blindagem.value), Number(f_municao.value))
         carros.push(c)
-        carros.map((el)=>{
-            const carro=document.createElement('div')
-            carro.setAttribute('class', 'carro')
-            carro.innerHTML=`Nome: ${el.nome}<br>Portas: ${el.portas}<br>Blindagem: ${el.blindagem}<br>Munição: ${el.munição}`
-            saida.appendChild(carro)
-        })
     }
-    
-    
+
+    mostrarCarros()
 })
 
 f_tipoMilitar.addEventListener('click', (evt)=>{
