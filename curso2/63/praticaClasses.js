@@ -45,6 +45,12 @@ const f_portas = document.getElementById('f_portas')
 const saida=document.querySelector('.carros')
 let carros=[]
 
+const removerCarro=(quem)=>{
+    carros=carros.filter((el)=>{
+        return el.nome!=quem
+    })
+}
+
 f_nome.focus()
 
 const mostrarCarros=()=>{
@@ -52,12 +58,23 @@ const mostrarCarros=()=>{
     carros.map((el)=>{
         const carro=document.createElement('div')
         carro.setAttribute('class', 'carro')
+        carro.setAttribute('data-nome', el.nome)
         carro.innerHTML=`Nome: ${el.nome}<br>Portas: ${el.portas}`
 
         if(el.blindagem!=undefined){
             carro.innerHTML+=`<br>Blindagem: ${el.blindagem}<br>Munição: ${el.munição}`
         }
 
+        const btnRemover =document.createElement('button')
+        btnRemover.setAttribute('class', 'btnRemover')
+        btnRemover.innerHTML="Remover"
+        btnRemover.addEventListener('click', (evt)=>{
+            const quemRemover=evt.target.parentNode.dataset.nome
+            removerCarro(quemRemover)
+            mostrarCarros()
+        })
+
+        carro.appendChild(btnRemover)
         saida.appendChild(carro)
 
         f_nome.value=null
