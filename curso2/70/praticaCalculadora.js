@@ -4,24 +4,40 @@ const teclaRes=document.querySelector('.res')
 const display = document.querySelector('#display')
 const ton=document.getElementById('ton')
 const tlimpar=document.getElementById('tlimpar')
+let ligado=true
 
 teclasNum.map((el)=>{
     el.addEventListener('click', (evt)=>{
-        if(display.innerHTML==='0'){
-            display.innerHTML=evt.target.innerHTML
-        }else{
-            display.innerHTML+=evt.target.innerHTML
+        if(ligado){
+            if(display.innerHTML==='0'){
+                display.innerHTML=evt.target.innerHTML
+            }else{
+                display.innerHTML+=evt.target.innerHTML
+            }
         }
     })
 })
 
 teclasOp.map((el)=>{
     el.addEventListener('click', (evt)=>{
-        display.innerHTML+=evt.target.innerHTML
-
+        if(ligado){
+            display.innerHTML+=evt.target.innerHTML
+        }
     })
 })
 
 tlimpar.addEventListener('click', ()=>{
-    display.innerHTML='0'
+    if(ligado){
+        display.innerHTML='0'
+    }
+})
+
+ton.addEventListener('click', ()=>{
+    if(ligado){
+        ligado=false
+        display.innerHTML=''
+    }else{
+        ligado=true
+        display.innerHTML='0'
+    }
 })
