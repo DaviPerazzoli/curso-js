@@ -8,28 +8,30 @@ let ligado=true
 
 teclasNum.map((el)=>{
     el.addEventListener('click', (evt)=>{
-        if(ligado){
-            if(display.innerHTML==='0'){
-                display.innerHTML=evt.target.innerHTML
-            }else{
-                display.innerHTML+=evt.target.innerHTML
-            }
+        if(!ligado)return
+        
+        if(display.innerHTML==='0'){
+            display.innerHTML=evt.target.innerHTML
+        }else{
+            display.innerHTML+=evt.target.innerHTML
         }
     })
 })
 
 teclasOp.map((el)=>{
     el.addEventListener('click', (evt)=>{
-        if(ligado){
-            display.innerHTML+=evt.target.innerHTML
+        if(!ligado){
+            return
         }
+        display.innerHTML+=evt.target.innerHTML
     })
 })
 
 tlimpar.addEventListener('click', ()=>{
-    if(ligado){
-        display.innerHTML='0'
+    if(!ligado){
+        return
     }
+    display.innerHTML='0'
 })
 
 ton.addEventListener('click', ()=>{
