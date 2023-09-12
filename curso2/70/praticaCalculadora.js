@@ -43,8 +43,12 @@ teclasOp.map((el)=>{
             return
         }
 
+        if(evt.target.innerHTML=='x'){
+            display.innerHTML+='*'
+        }else{
+            display.innerHTML+=evt.target.innerHTML
+        }
         
-        display.innerHTML+=evt.target.innerHTML
         sinal=true
         virgula=false
     })
