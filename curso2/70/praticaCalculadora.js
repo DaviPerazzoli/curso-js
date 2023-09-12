@@ -42,6 +42,8 @@ teclasOp.map((el)=>{
         if(sinal){
             return
         }
+
+        
         display.innerHTML+=evt.target.innerHTML
         sinal=true
         virgula=false
