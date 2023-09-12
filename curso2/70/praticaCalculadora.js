@@ -17,7 +17,11 @@ teclasNum.map((el)=>{
         if(display.innerHTML==='0'){
             display.innerHTML=''
         }
+
         if(evt.target.innerHTML==','){
+            if(sinal){
+                return
+            }
             if(virgula==false){
                 virgula=true
                 display.innerHTML+=evt.target.innerHTML
