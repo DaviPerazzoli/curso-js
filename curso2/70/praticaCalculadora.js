@@ -4,16 +4,27 @@ const teclaRes=document.querySelector('.res')
 const display = document.querySelector('#display')
 const ton=document.getElementById('ton')
 const tlimpar=document.getElementById('tlimpar')
+const tseparador=document.getElementById('tseparador')
+
 let ligado=true
+let sinal=false
+let virgula=false
 
 teclasNum.map((el)=>{
     el.addEventListener('click', (evt)=>{
         if(!ligado)return
         
         if(display.innerHTML==='0'){
-            display.innerHTML=evt.target.innerHTML
+            display.innerHTML=''
+        }
+        if(evt.target.innerHTML==','){
+            if(virgula==false){
+                virgula=true
+                display.innerHTML+=evt.target.innerHTML
+            }
         }else{
             display.innerHTML+=evt.target.innerHTML
+            sinal=false
         }
     })
 })
@@ -23,7 +34,13 @@ teclasOp.map((el)=>{
         if(!ligado){
             return
         }
+
+        if(sinal){
+            return
+        }
         display.innerHTML+=evt.target.innerHTML
+        sinal=true
+        virgula=false
     })
 })
 
@@ -32,6 +49,7 @@ tlimpar.addEventListener('click', ()=>{
         return
     }
     display.innerHTML='0'
+    virgula=false
 })
 
 ton.addEventListener('click', ()=>{
