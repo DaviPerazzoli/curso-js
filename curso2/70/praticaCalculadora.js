@@ -5,6 +5,7 @@ const display = document.querySelector('#display')
 const ton=document.getElementById('ton')
 const tlimpar=document.getElementById('tlimpar')
 const tseparador=document.getElementById('tseparador')
+const tigual = document.getElementById('tigual')
 
 let ligado=true
 let sinal=false
@@ -24,7 +25,7 @@ teclasNum.map((el)=>{
             }
             if(virgula==false){
                 virgula=true
-                display.innerHTML+=evt.target.innerHTML
+                display.innerHTML+='.'
             }
         }else{
             display.innerHTML+=evt.target.innerHTML
@@ -48,7 +49,7 @@ teclasOp.map((el)=>{
         }else{
             display.innerHTML+=evt.target.innerHTML
         }
-        
+
         sinal=true
         virgula=false
     })
@@ -70,4 +71,11 @@ ton.addEventListener('click', ()=>{
         ligado=true
         display.innerHTML='0'
     }
+})
+
+tigual.addEventListener('click', (evt)=>{
+    sinal=false
+    decimal=false
+    const res =eval(display.innerHTML)
+    display.innerHTML=res
 })
