@@ -55,6 +55,11 @@ tlimpar.addEventListener('click', ()=>{
     virgula=false
 })
 
+tigual.addEventListener('click', (evt)=>{
+    const res = eval(display.innerHTML)
+    display.innerHTML=res
+})
+
 tcpy.addEventListener('click', (evt)=>{
     // teste.select()
     // teste.setSelectionRange(0, teste.value.length) //* MOBILE
