@@ -2,18 +2,17 @@ const teclasNum=[...document.querySelectorAll('.num')]
 const teclasOp = [...document.querySelectorAll('.op')]
 const teclaRes=document.querySelector('.res')
 const display = document.querySelector('#display')
-const ton=document.getElementById('ton')
+const tcpy=document.getElementById('tcpy')
 const tlimpar=document.getElementById('tlimpar')
 const tseparador=document.getElementById('tseparador')
 const tigual = document.getElementById('tigual')
+const teste = document.getElementById('teste')
 
-let ligado=true
 let sinal=false
 let virgula=false
 
 teclasNum.map((el)=>{
     el.addEventListener('click', (evt)=>{
-        if(!ligado)return
         
         if(display.innerHTML==='0'){
             display.innerHTML=''
@@ -36,10 +35,6 @@ teclasNum.map((el)=>{
 
 teclasOp.map((el)=>{
     el.addEventListener('click', (evt)=>{
-        if(!ligado){
-            return
-        }
-
         if(sinal){
             return
         }
@@ -56,26 +51,12 @@ teclasOp.map((el)=>{
 })
 
 tlimpar.addEventListener('click', ()=>{
-    if(!ligado){
-        return
-    }
     display.innerHTML='0'
     virgula=false
 })
 
-ton.addEventListener('click', ()=>{
-    if(ligado){
-        ligado=false
-        display.innerHTML=''
-    }else{
-        ligado=true
-        display.innerHTML='0'
-    }
-})
-
-tigual.addEventListener('click', (evt)=>{
-    sinal=false
-    decimal=false
-    const res =eval(display.innerHTML)
-    display.innerHTML=res
+tcpy.addEventListener('click', (evt)=>{
+    // teste.select()
+    // teste.setSelectionRange(0, teste.value.length) //* MOBILE
+    navigator.clipboard.writeText(display.innerHTML)
 })
