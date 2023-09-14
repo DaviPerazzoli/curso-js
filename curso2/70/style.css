@@ -7,7 +7,30 @@
 }
 
 .calc{
-    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -230px;
+    transition: all 0.2s;
+}
+
+.calc_exibir{
+    left: 0px !important;
+}
+
+#calc_aba{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 50px;
+    background-color: rgba(128,128,128,0.3);
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+#calc_principal{
     display:flex;
     justify-content: center;
     align-items: center;

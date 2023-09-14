@@ -7,6 +7,8 @@ const tlimpar=document.getElementById('tlimpar')
 const tseparador=document.getElementById('tseparador')
 const tigual = document.getElementById('tigual')
 const teste = document.getElementById('teste')
+const calc_aba = document.getElementById('calc_aba')
+const calc = document.getElementById('calc')
 
 let sinal=false
 let virgula=false
@@ -64,4 +66,8 @@ tcpy.addEventListener('click', (evt)=>{
     // teste.select()
     // teste.setSelectionRange(0, teste.value.length) //* MOBILE
     navigator.clipboard.writeText(display.innerHTML)
+})
+
+calc_aba.addEventListener('click', (evt)=>{
+    calc.classList.toggle('calc_exibir')
 })
