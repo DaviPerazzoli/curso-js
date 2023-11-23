@@ -35,6 +35,4 @@ const promessa=()=>{
     return promise
 }
 
-
-
 numero.innerHTML="esperando"
