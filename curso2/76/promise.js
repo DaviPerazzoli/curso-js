@@ -2,6 +2,7 @@ const numero=document.getElementById('numero')
 const btn_promessa = document.getElementById('btn_promessa')
 
 btn_promessa.addEventListener('click', ()=>{
+    
     promessa()
         .then((retorno)=>{ 
             numero.innerHTML=retorno
@@ -15,6 +16,8 @@ btn_promessa.addEventListener('click', ()=>{
             numero.classList.add('erro')
             numero.classList.remove('ok')
         })
+    numero.classList.remove('ok')
+    numero.classList.remove('erro')
     numero.innerHTML="processando..."
 })
 
