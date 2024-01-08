@@ -28,7 +28,12 @@ class Bola{
         this.id=Date.now()+'_'+Math.floor(Math.random()*100000000000000)
         this.desenhar()
         this.controle=setInterval(()=>{this.controlar()}, 10)
+        this.eu.addEventListener('click', ()=>{
+            if(this.tam <200){
+                this.tam+=5
+            }
 
+        })
     }
 
     //* Retorna a posição da bola no array
@@ -55,9 +60,15 @@ class Bola{
     controle_bordas(){
         if(this.py+this.tam >= alturaPalco || this.py <= 0){
             this.diry *= -1
+            this.r = Math.floor(Math.random()*255)
+            this.g = Math.floor(Math.random()*255)
+            this.b = Math.floor(Math.random()*255)
         }
         if(this.px+this.tam >= larguraPalco || this.px <= 0){
             this.dirx *= -1
+            this.r = Math.floor(Math.random()*255)
+            this.g = Math.floor(Math.random()*255)
+            this.b = Math.floor(Math.random()*255)
         }
     }
 
@@ -68,6 +79,7 @@ class Bola{
         this.py += this.diry*this.vely
         this.eu.setAttribute('style', `left:${this.px}px; top:${this.py}px; width: ${this.tam}px; height: ${this.tam}px; background-color: rgb(${this.r}, ${this.g}, ${this.b})`)
 
+        //* remove a bolinha se estiver fora da tela
         if((this.px > larguraPalco) || (this.py>alturaPalco)){
             this.remover()
             num_objetos.innerHTML=bolas.length
@@ -105,6 +117,7 @@ btn_add.addEventListener('click', (e)=>{
     for(let i=0; i< qtde; i++){
         //* Instanciar novas bolinhas, colocar no array bolas e atualizar a contagem de bolas
         let bola = new Bola(bolas, palco)
+        
         bolas.push(bola)
     }
     num_objetos.innerHTML=bolas.length
