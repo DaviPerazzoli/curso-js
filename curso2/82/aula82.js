@@ -11,8 +11,7 @@ let numBolas = 0
 
 class Bola{
     constructor(arrayBolas, palco){
-        // *Definindo as propriedades para valores aleatórios
-
+        //* Definindo as propriedades para valores aleatórios
         this.tam=Math.floor(Math.random()*10)+10        //* Tamanho
         this.r = Math.floor(Math.random()*255)          //* Cor
         this.g = Math.floor(Math.random()*255)
@@ -51,15 +50,13 @@ class Bola{
         clearInterval(this.controle)
         if(todos){
             bolas=[]
-
         }else{
             bolas = bolas.filter((e)=>{ return e.id !== this.id })
-
         }
         this.eu.remove()
     }
 
-    //* verifica se a bolinha tocou nas bordas
+    //* verifica se a bolinha tocou nas bordas e muda a direção e a cor
     controle_bordas(){
         if(this.py+this.tam >= alturaPalco || this.py <= 0){
             this.diry *= -1
