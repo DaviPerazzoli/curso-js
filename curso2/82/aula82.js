@@ -19,15 +19,15 @@ class Bola{
         this.b = Math.floor(Math.random()*255)
         this.px=Math.floor(Math.random()*(larguraPalco-this.tam)) //* Posição
         this.py=Math.floor(Math.random()*(alturaPalco-this.tam))
-        this.velx=Math.floor(Math.random()*2+0.5)
-        this.vely=Math.floor(Math.random()*2+0.5)
+        this.velx=Math.floor(Math.random()*2+1)
+        this.vely=Math.floor(Math.random()*2+1)
         this.dirx=(Math.random()*10)>5?1:-1
         this.diry=(Math.random()*10)>5?1:-1
         this.palco = palco
         this.arrayBolas = arrayBolas
         this.id=Date.now()+'_'+Math.floor(Math.random()*100000000000000)
         this.desenhar()
-        this.controle=setInterval(this.controlar(), 10)
+        this.controle=setInterval(()=>{this.controlar()}, 10)
 
     }
 
@@ -44,19 +44,34 @@ class Bola{
             bolas=[]
 
         }else{
-            bolas = bolas.filter((e)=>{
-                if(e.id != this.id){
-                    return e
-                }
-            })
+            bolas = bolas.filter((e)=>{ return e.id !== this.id })
 
         }
         this.eu.remove()
 
     }
 
-    controlar(){
+    //* verifica se a bolinha tocou nas bordas
+    controle_bordas(){
+        if(this.py+this.tam >= alturaPalco || this.py <= 0){
+            this.diry *= -1
+        }
+        if(this.px+this.tam >= larguraPalco || this.px <= 0){
+            this.dirx *= -1
+        }
+    }
 
+    controlar(){
+        this.controle_bordas()
+        //* movimentação: soma a posição atual com a direção x velocidade
+        this.px += this.dirx*this.velx
+        this.py += this.diry*this.vely
+        this.eu.setAttribute('style', `left:${this.px}px; top:${this.py}px; width: ${this.tam}px; height: ${this.tam}px; background-color: rgb(${this.r}, ${this.g}, ${this.b})`)
+
+        if((this.px > larguraPalco) || (this.py>alturaPalco)){
+            this.remover()
+            num_objetos.innerHTML=bolas.length
+        }
     }
 
     //* Método para mostrar uma bolinha
@@ -64,19 +79,20 @@ class Bola{
         const bola = document.createElement('div')
         bola.classList.add('bola')
         bola.setAttribute('id', this.id)
-        bola.style.width = this.tam.toString() + 'px'
-        bola.style.height = this.tam.toString() + 'px'
-        bola.style.backgroundColor = `rgb(${this.r}, ${this.g}, ${this.b})`
-        bola.style.left = this.px.toString() + 'px'
-        bola.style.top = this.py.toString() + 'px'
+        // bola.style.width = this.tam.toString() + 'px'
+        // bola.style.height = this.tam.toString() + 'px'
+        // bola.style.backgroundColor = `rgb(${this.r}, ${this.g}, ${this.b})`
+        // bola.style.left = this.px.toString() + 'px'
+        // bola.style.top = this.py.toString() + 'px'
+        bola.setAttribute('style', `width: ${this.tam}px; height: ${this.tam}px; left:${this.px}px; top:${this.py}px;  background-color: rgb(${this.r}, ${this.g}, ${this.b})`)
         palco.appendChild(bola)
         this.eu = bola
     }
 }
 
 window.addEventListener('resize', (e)=>{
-    let larguraPalco=palco.offsetWidth
-    let alturaPalco=palco.offsetHeight
+    larguraPalco=palco.offsetWidth
+    alturaPalco=palco.offsetHeight
 })
 
 //* Botão para criar as bolinhas
