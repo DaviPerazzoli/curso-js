@@ -19,15 +19,20 @@ class Bola{
         this.b = Math.floor(Math.random()*255)
         this.px=Math.floor(Math.random()*(larguraPalco-this.tam)) //* Posição
         this.py=Math.floor(Math.random()*(alturaPalco-this.tam))
-        this.velx=Math.floor(Math.random()*2+1)
+        this.velx=Math.floor(Math.random()*2+1) //* velocidade
         this.vely=Math.floor(Math.random()*2+1)
-        this.dirx=(Math.random()*10)>5?1:-1
+        this.dirx=(Math.random()*10)>5?1:-1 //* direção
         this.diry=(Math.random()*10)>5?1:-1
+
         this.palco = palco
         this.arrayBolas = arrayBolas
+
         this.id=Date.now()+'_'+Math.floor(Math.random()*100000000000000)
+
         this.desenhar()
         this.controle=setInterval(()=>{this.controlar()}, 10)
+
+        //* evento de click na bolinha, que faz ela crescer até um tamanho de 200
         this.eu.addEventListener('click', ()=>{
             if(this.tam <200){
                 this.tam+=5
@@ -72,6 +77,7 @@ class Bola{
         }
     }
 
+    //* função que controla o movimento das bolinhas
     controlar(){
         this.controle_bordas()
         //* movimentação: soma a posição atual com a direção x velocidade
@@ -102,13 +108,13 @@ class Bola{
     }
 }
 
+//* atualiza as medidas de largura e altura do palco quando ele muda de tamanho
 window.addEventListener('resize', (e)=>{
     larguraPalco=palco.offsetWidth
     alturaPalco=palco.offsetHeight
 })
 
 //* Botão para criar as bolinhas
-
 btn_add.addEventListener('click', (e)=>{
 
     //* Pega a quantidade desejada de bolinhas
@@ -123,9 +129,9 @@ btn_add.addEventListener('click', (e)=>{
     num_objetos.innerHTML=bolas.length
 })
 
+//* botão que remove todas as bolinhas
 btn_remover.addEventListener('click', (e)=>{
     bolas.forEach((bola)=>{
-        //remover bolinha
        bola.remover(true)
     })
     num_objetos.innerHTML=bolas.length
