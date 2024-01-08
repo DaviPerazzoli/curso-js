@@ -37,7 +37,6 @@ class Bola{
             if(this.tam <200){
                 this.tam+=5
             }
-
         })
     }
 
@@ -58,7 +57,6 @@ class Bola{
 
         }
         this.eu.remove()
-
     }
 
     //* verifica se a bolinha tocou nas bordas
@@ -116,7 +114,6 @@ window.addEventListener('resize', (e)=>{
 
 //* Botão para criar as bolinhas
 btn_add.addEventListener('click', (e)=>{
-
     //* Pega a quantidade desejada de bolinhas
     const qtde = txt_qtde.value 
 
@@ -126,6 +123,7 @@ btn_add.addEventListener('click', (e)=>{
         
         bolas.push(bola)
     }
+
     num_objetos.innerHTML=bolas.length
 })
 
@@ -134,5 +132,6 @@ btn_remover.addEventListener('click', (e)=>{
     bolas.forEach((bola)=>{
        bola.remover(true)
     })
+
     num_objetos.innerHTML=bolas.length
 })
