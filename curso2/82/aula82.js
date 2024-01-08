@@ -28,14 +28,30 @@ class Bola{
         this.id=Date.now()+'_'+Math.floor(Math.random()*100000000000000)
         this.desenhar()
         this.controle=setInterval(this.controlar(), 10)
-        this.eu=document.getElementById(this.id)
+
     }
 
+    //* Retorna a posição da bola no array
     minhaPos(){
-
+        return this.arrayBolas.indexOf(this)
     }
 
-    remover(){
+    //* remove o controle, o elemento do array e o objeto no DOM
+    //* se forem todos, apenas limpa o array
+    remover(todos=false){
+        clearInterval(this.controle)
+        if(todos){
+            bolas=[]
+
+        }else{
+            bolas = bolas.filter((e)=>{
+                if(e.id != this.id){
+                    return e
+                }
+            })
+
+        }
+        this.eu.remove()
 
     }
 
@@ -54,7 +70,7 @@ class Bola{
         bola.style.left = this.px.toString() + 'px'
         bola.style.top = this.py.toString() + 'px'
         palco.appendChild(bola)
-        this.elemento = bola
+        this.eu = bola
     }
 }
 
@@ -72,18 +88,16 @@ btn_add.addEventListener('click', (e)=>{
 
     for(let i=0; i< qtde; i++){
         //* Instanciar novas bolinhas, colocar no array bolas e atualizar a contagem de bolas
-        let bola = new Bola()
+        let bola = new Bola(bolas, palco)
         bolas.push(bola)
-        
-
-        num_objetos.innerHTML = bolas.length
     }
+    num_objetos.innerHTML=bolas.length
 })
 
 btn_remover.addEventListener('click', (e)=>{
     bolas.forEach((bola)=>{
         //remover bolinha
-       
+       bola.remover(true)
     })
-    
+    num_objetos.innerHTML=bolas.length
 })
