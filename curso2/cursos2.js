@@ -1,4 +1,4 @@
-export const cursos2 = ['Javascript', 'HTML', 'CSS', 'Arduino', 'Raspberry', 'C++', 'Python', 'Java', 'C#']
+const cursos2 = ['Javascript', 'HTML', 'CSS', 'Arduino', 'Raspberry', 'C++', 'Python', 'Java', 'C#']
 
 export default function getTodosCursos(){
     return cursos2
