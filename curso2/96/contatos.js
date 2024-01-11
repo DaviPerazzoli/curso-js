@@ -12,7 +12,7 @@ let contato = {
 
             target.innerHTML=''
 
-            contatos.forEach((e)=>{
+            contatos.forEach((e, i)=>{
                 const div = document.createElement('div')
                 div.classList.add('contato')
                 const p_nome=document.createElement('p')
@@ -24,6 +24,16 @@ let contato = {
                 div.appendChild(p_nome)
                 div.appendChild(p_email)
                 div.appendChild(p_telefone)
+
+                const btn_remover = document.createElement('button')
+                btn_remover.innerHTML='🗑️'
+                btn_remover.setAttribute('style', 'padding: 5px; background-color: black;')
+                btn_remover.addEventListener('click', (evt)=>{
+                    evt.target.parentNode.remove()
+                    contatos.splice(i, 1)
+                })
+                div.appendChild(btn_remover)
+
                 target.appendChild(div)
             })
         }
