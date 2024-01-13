@@ -10,4 +10,3 @@ console.log(nome.repeat(4))
 console.log(nome)
 
 console.log(String.fromCharCode(nome.charCodeAt(0),nome.charCodeAt(1),nome.charCodeAt(2),nome.charCodeAt(3),nome.charCodeAt(4)))
-
