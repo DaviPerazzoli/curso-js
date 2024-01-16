@@ -5,6 +5,7 @@ const btn_rodar = document.getElementById('btn_rodar')
 let tamMax = window.innerWidth - parseInt(carro.style.width)
 let anima=null
 let tamCarro = null
+let movendo = false
 
 const init = ()=>{
     carro.style.position='relative'
@@ -21,6 +22,7 @@ const redefinirTamMax=()=>{
 
 //* utilizando recursividade
 const mover=(dir)=>{
+    movendo = true
     let posicao_carro = parseInt(carro.style.left)
     if(posicao_carro > tamMax || posicao_carro < 0){
         dir *= -1
@@ -32,10 +34,13 @@ const mover=(dir)=>{
 
 btn_parar.addEventListener('click', ()=>{
     clearTimeout(anima)
+    movendo=false
 })
 
 btn_rodar.addEventListener('click', ()=>{
-    mover(1)
+    if(!movendo){
+        mover(1)
+    }
 })
 
 // window.onload=init()
