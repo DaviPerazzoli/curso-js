@@ -1,26 +1,38 @@
-// let numeros = [10,20,30,40]
+let numeros = [10,20,30,40,50,60,70,80,90]
 
-// // let[e,f,g,h]=numeros
+let [a,b,c,...d] = numeros
 
-// let [e=0,f=0,g=0,h=0]=[10];
 
-// // ({a,b,c,d} = {a:'verde',b:'amarelo',c:'azul',d:'branco'})
+let obj={nome:'bruno', canal: 'CFB Cursos'}
 
-// console.log(a)
-// console.log(b)
-// console.log(c)
-// console.log(d)
-// console.log(e)
-// console.log(f)
-// console.log(g)
-// console.log(h)
+let {nome,canal}=obj
 
-let numeros=()=>{
-    return [10,20,30,40]
+console.log(d)
+console.log(nome)
+console.log(canal)
+
+const cores = ()=>{
+    return ['verde', 'amarelo', 'azul','branco']
 }
 
-let [a,b,c,d] = numeros()
+let[c1,c2,,c3]=cores()
+console.log(c1)
+console.log(c2)
+console.log(c3)
 
-// [a,b] = [b,a]
+let texto='curso de JavaScript'
+let [...t]=texto.split(' ')
+console.log(t)
+//* let[e,f,g,h]=numeros
 
-console.log(a)
+//* let [e=0,f=0,g=0,h=0]=[10];
+
+//* ({a,b,c,d} = {a:'verde',b:'amarelo',c:'azul',d:'branco'})
+
+//* let numeros=()=>{
+//*     return [10,20,30,40]
+//* }
+
+//* let [a,b,c,d] = numeros()
+
+//* [a,b] = [b,a]
