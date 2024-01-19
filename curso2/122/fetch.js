@@ -10,9 +10,12 @@ const obterDados=()=>{
     .then(dados=>{
         p_texto.innerHTML=dados.slip.advice
     })
-    .catch(retorno=>console.log(retorno))
+    .catch(retorno=>console.log(retorno));
 
-    p_texto.innerHTML='Procurando conselho...'
+    p_texto.innerHTML='Procurando conselho...';
 }
 
-btn_texto.addEventListener('click',obterDados)
+btn_texto.addEventListener('click',()=>{
+    obterDados()
+    const intervalo = setInterval(obterDados, 7000);
+})
