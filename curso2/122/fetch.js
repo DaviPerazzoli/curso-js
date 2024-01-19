@@ -17,5 +17,5 @@ const obterDados=()=>{
 
 btn_texto.addEventListener('click',()=>{
     obterDados();
-    const intervalo = setInterval(obterDados, 7000);
+    // const intervalo = setInterval(obterDados, 7000);
 })
