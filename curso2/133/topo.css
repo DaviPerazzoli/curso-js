@@ -1,10 +1,4 @@
-*{
-    border:none;
-    padding: 0;
-    margin:0;
-    box-sizing: border-box;
-}
-
+/* 
 .topo{
     display: flex;
     justify-content: space-between;
@@ -14,4 +8,4 @@
 
 .logo img{
     width:200px;
-}
+} */
