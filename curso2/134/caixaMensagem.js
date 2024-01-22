@@ -1,15 +1,18 @@
 export default class CaixaMensagem{
-    constructor(config){
-        
+    static cor='#888';
+    static destino=null;
+    static divMsg=null;
+
+    static config=(config)=>{
         this.cor=config.cor;
-        this.destino=document.body;
     }
 
-    mostrar=(titulo, texto)=>{
+    static mostrar=(titulo, texto)=>{
+        this.destino=document.body;
         this.titulo=titulo;
         this.texto=texto;
-         this.divMsg = document.createElement('div');
-         const estiloDivMsg = 
+        this.divMsg = document.createElement('div');
+        const estiloDivMsg = 
             'display: flex;'+
             'justify-content: center;'+
             'align-items: center;'+
@@ -95,7 +98,7 @@ export default class CaixaMensagem{
         rodapeCaixa.appendChild(btn_ok);
     }
 
-    ocultar=()=>{
+    static ocultar=()=>{
         this.divMsg.remove()
     }
 }
