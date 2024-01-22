@@ -2,12 +2,13 @@ export default class CaixaMensagem{
     static cor='#888';
     static destino=null;
     static divMsg=null;
+    static tipo=null;
+    static comando_sn = null;
 
-    static config=(config)=>{
+    static mostrar=(titulo, texto, config)=>{
         this.cor=config.cor;
-    }
-
-    static mostrar=(titulo, texto)=>{
+        this.tipo=config.tipo;
+        this.comando_sn=config.comando_sn;
         this.destino=document.body;
         this.titulo=titulo;
         this.texto=texto;
@@ -88,14 +89,36 @@ export default class CaixaMensagem{
             'box-shadow: 1px 1px 3px rgba(0,0,0,0.3);'+
             'color: white;'+
             'background-color: '+this.cor+';';
-        const btn_ok = document.createElement('button');
-        btn_ok.setAttribute('id', 'btn_ok');
-        btn_ok.setAttribute('style', estiloBtn);
-        btn_ok.innerHTML='OK';
-        btn_ok.addEventListener('click', ()=>{
-            this.ocultar();
-        })
-        rodapeCaixa.appendChild(btn_ok);
+
+        if(this.tipo=='ok'){
+            const btn_ok = document.createElement('button');
+            btn_ok.setAttribute('id', 'btn_ok');
+            btn_ok.setAttribute('style', estiloBtn);
+            btn_ok.innerHTML='OK';
+            btn_ok.addEventListener('click', ()=>{
+                this.ocultar();
+            })
+            rodapeCaixa.appendChild(btn_ok);
+        }else if(this.tipo=='sn'){
+            const btn_sim = document.createElement('button');
+            btn_sim.setAttribute('id', 'btn_ok');
+            btn_sim.setAttribute('style', estiloBtn);
+            btn_sim.innerHTML='SIM';
+            btn_sim.addEventListener('click', ()=>{
+                this.comando_sn()
+                this.ocultar();
+            })
+            rodapeCaixa.appendChild(btn_sim);
+
+            const btn_nao = document.createElement('button');
+            btn_nao.setAttribute('id', 'btn_ok');
+            btn_nao.setAttribute('style', estiloBtn);
+            btn_nao.innerHTML='NÃO';
+            btn_nao.addEventListener('click', ()=>{
+                this.ocultar();
+            })
+            rodapeCaixa.appendChild(btn_nao);
+        }
     }
 
     static ocultar=()=>{
