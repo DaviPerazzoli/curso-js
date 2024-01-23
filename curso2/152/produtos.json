@@ -2,13 +2,13 @@
     {
         "id":"01",
         "produto":"Processador",
-        "marca":"intel",
+        "marca":"Intel",
         "modelo":"i7"
     },
     {
         "id":"02",
         "produto":"mouse",
-        "marca":"logitec",
+        "marca":"Logitec",
         "modelo":"M90"
     },
     {
