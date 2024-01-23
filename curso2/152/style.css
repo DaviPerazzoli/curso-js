@@ -32,9 +32,17 @@
     align-items: flex-start;
 }
 
-/* .linha div{
-    border: 1px solid gray
-} */
+.linha:hover{
+    background-color: rgba(1, 95, 95, 0.349) !important;
+}
+
+.linha:nth-child(odd){
+    background-color: #ddd;
+}
+
+.linha:nth-child(even){
+    background-color: #eee;
+}
 
 .dataGridViewDados{
     display: flex;
