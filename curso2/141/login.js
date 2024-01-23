@@ -3,8 +3,7 @@ export default class Login{
     static matLogado=null;
     static nomeLogado=null;
     static acessoLogado=null;
-    static endpoint='';
-//* http://localhost:8080/?matricula=123&senha=321
+    static endpoint=''; //* http://localhost:8080/?matricula=123&senha=321
 
     static login=(mat, pas)=>{
         this.endpoint=`http://localhost:8080/?matricula=${mat}&senha=${pas}`;
