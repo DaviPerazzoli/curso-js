@@ -1,0 +1,122 @@
+*{
+    border:none;
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI Semibold', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#fundoLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100dvh;
+    position: absolute;
+    top:0px;
+    left:0px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#baseLogin{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-basis: 500px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(231, 231, 231, 0.3)
+}
+
+#elementosLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 2 2;
+    background-color: #fff;
+    border-radius: 10px 0 0 10px;
+}
+
+.campoLogin{
+    padding: 10px;
+    font-size: 1.1em;
+    transition: color 0.3s;
+    align-self: flex-end;
+    margin-right: 30px;
+}
+
+.campoLogin:hover{
+    color: #0099ff;
+}
+
+.campoLogin input{
+    padding: 5px;
+    border-radius: 20px;
+    border: 3px solid #0099ff;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.campoLogin input:hover, .campoLogin input:focus{
+    background-color: #d2edff8a;
+}
+
+.botoesLogin{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botoesLogin button{
+    font-size: 1.1em;
+    border-radius: 20px;
+    padding: 8px 15px;
+    width: 30%;
+    cursor: pointer;
+}
+
+.botoesLogin #btn_login{
+    background-color: #0099ff;
+    color: white;
+    font-weight: bold;
+    border:2px solid #0099ff;
+    transition: background-color 0.3s;
+}
+
+.botoesLogin #btn_login:hover{
+    background-color: #0084db;
+    border:2px solid #0084db;
+}
+
+.botoesLogin #btn_cancelar{
+    background-color: white;
+    border: 1px solid #0099ff;
+    color: #0099ff;
+    transition: background-color 0.3s;
+}
+
+.botoesLogin #btn_cancelar:hover{
+    background-color: #0099ff;
+    border:2px solid #0099ff;
+    color: white;
+}
+
+
+#logoLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1;
+    background-color: #0099ff;
+    background-image: url('campo.jpg');
+    background-size: cover;
+    background-position: center center;
+    border-radius: 0px 10px 10px 0px;
+    overflow: hidden;
+}
+
+#logoLogin img{
+    width:95%;
+}
