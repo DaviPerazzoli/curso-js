@@ -51,7 +51,7 @@ const dataGridView=(config)=>{
                     if(res.status==200){
                         linha.remove();
                     }
-                })
+                });
             })
             c5.appendChild(imgDelete);
 
@@ -68,7 +68,7 @@ const dataGridView=(config)=>{
             dataGridViewDados.appendChild(linha);
 
         });
-    })
+    });
 }
 
 dataGridView(configDataGridView);
