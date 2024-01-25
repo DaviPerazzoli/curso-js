@@ -44,11 +44,13 @@ const dataGridView=(config)=>{
             imgDelete.addEventListener('click', (evt)=>{
                 const id_produto = evt.target.parentNode.parentNode.firstElementChild.innerHTML;
                 const linha = evt.target.parentNode.parentNode;
-                linha.remove();
+                
                 const endpoint='http://127.0.0.1:1880/removeproduto/'+id_produto;
                 fetch(endpoint)
                 .then(res=>{
-                    console.log(res);
+                    if(res.status==200){
+                        linha.remove();
+                    }
                 })
             })
             c5.appendChild(imgDelete);
