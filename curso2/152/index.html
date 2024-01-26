@@ -19,7 +19,7 @@
             
         </div>
 
-        <div id="janelaView" class="janelaView">
+        <div id="janelaView" class="janelaView ocultar">
             <div id="view" class="view">
                 <div class="campo">
                     <label for="f_id">ID</label>
@@ -37,8 +37,34 @@
                     <label for="f_modelo">Modelo</label>
                     <input type="text" name="f_modelo" id="f_modelo" readonly>
                 </div>
-                <div id="campo" class="campo rodape">
+                <div id="rodape" class="campo rodape">
                     <button id="btn_ok" class="btn">OK</button>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="janelaEditar" class="janelaView ocultar">
+            <div id="editar" class="view">
+                <div class="campo">
+                    <label for="f_id_editar">ID</label>
+                    <input type="text" name="f_id_editar" id="f_id_editar" readonly>
+                </div>
+                <div class="campo">
+                    <label for="f_produto">Produto</label>
+                    <input type="text" name="f_produto_editar" id="f_produto_editar">
+                </div>
+                <div class="campo">
+                    <label for="f_marca">Marca</label>
+                    <input type="text" name="f_marca_editar" id="f_marca_editar">
+                </div>
+                <div class="campo">
+                    <label for="f_modelo">Modelo</label>
+                    <input type="text" name="f_modelo_editar" id="f_modelo_editar">
+                </div>
+                <div id="rodape_editar" class="campo rodape">
+                    <button id="btn_gravar" class="btn">Gravar</button>
+                    <button id="btn_cancelar" class="btn">Cancelar</button>
                 </div>
             </div>
             

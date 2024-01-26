@@ -119,6 +119,9 @@
 .rodape{
     align-items: center;
     margin: 0px;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .btn{
@@ -127,4 +130,8 @@
     cursor: pointer;
     padding: 10px 30px;
     border-radius: 5px;
+}
+
+.ocultar{
+    display: none !important;
 }

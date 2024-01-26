@@ -58,11 +58,48 @@ const dataGridView=(config)=>{
             const imgEdit = document.createElement('img');
             imgEdit.setAttribute('class', 'icone');
             imgEdit.setAttribute('src', 'edit.svg');
+            imgEdit.addEventListener('click', (evt)=>{
+                const janelaEditar = document.getElementById('janelaEditar');
+                janelaEditar.classList.remove('ocultar');
+                
+                const id_produto = evt.target.parentNode.parentNode.firstElementChild.innerHTML;
+                const endpoint='http://127.0.0.1:1880/produto/'+id_produto;
+
+                fetch(endpoint)
+                .then(res=>res.json())
+                .then(res=>{
+                    console.log(res)
+                    document.querySelector('#f_id_editar').value=res[0].n_id_produto;
+                    document.querySelector('#f_produto_editar').value=res[0].s_nome_produto;
+                    document.querySelector('#f_marca_editar').value=res[0].s_marca_produto;
+                    document.querySelector('#f_modelo_editar').value=res[0].s_modelo_produto;
+                });
+
+
+            })
             c5.appendChild(imgEdit);
 
             const imgView = document.createElement('img');
             imgView.setAttribute('class', 'icone');
             imgView.setAttribute('src', 'view.svg');
+            imgView.addEventListener('click', (evt)=>{
+                const janelaView = document.getElementById('janelaView');
+                janelaView.classList.remove('ocultar');
+
+
+                const id_produto = evt.target.parentNode.parentNode.firstElementChild.innerHTML;
+                const endpoint='http://127.0.0.1:1880/produto/'+id_produto;
+
+                fetch(endpoint)
+                .then(res=>res.json())
+                .then(res=>{
+                    console.log(res)
+                    document.querySelector('#f_id').value=res[0].n_id_produto;
+                    document.querySelector('#f_produto').value=res[0].s_nome_produto;
+                    document.querySelector('#f_marca').value=res[0].s_marca_produto;
+                    document.querySelector('#f_modelo').value=res[0].s_modelo_produto;
+                });
+            })
             c5.appendChild(imgView);
 
             dataGridViewDados.appendChild(linha);
@@ -70,5 +107,36 @@ const dataGridView=(config)=>{
         });
     });
 }
+
+const btn_ok = document.getElementById('btn_ok');
+btn_ok.addEventListener('click', ()=>{
+    document.querySelector('#janelaView').classList.add('ocultar');
+});
+
+const btn_cancelar = document.getElementById('btn_cancelar');
+btn_cancelar.addEventListener('click', ()=>{
+    document.querySelector('#janelaEditar').classList.add('ocultar');
+});
+
+const btn_gravar = document.getElementById('btn_gravar');
+btn_gravar.addEventListener('click', ()=>{
+    
+    const id = document.querySelector('#f_id_editar').value
+    const produto = document.querySelector('#f_produto_editar').value
+    const marca = document.querySelector('#f_marca_editar').value
+    const modelo = document.querySelector('#f_modelo_editar').value
+    const endpoint=`http://127.0.0.1:1880/updateproduto/${id}/${produto}/${marca}/${modelo}`;
+
+    fetch(endpoint)
+    .then(res=>{
+        if(res.status==200){
+            document.querySelector('#janelaEditar').classList.add('ocultar');
+            dataGridView(configDataGridView);
+        }
+    })
+    
+});
+
+
 
 dataGridView(configDataGridView);
