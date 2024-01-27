@@ -34,11 +34,13 @@
     transition: all 0.4s;
     position: relative;
     bottom: -10px;
+    z-index: 0;
 }
 
 .aba:hover, .abaSelecionada{
     background-color: rgb(39, 83, 170);
     transform: translateY(-10px);
+    z-index: 2 !important;
 }
 
 .principal{
@@ -48,10 +50,70 @@
     background-color: #ddd;
     width: 100%;
     height: 100dvh;
+    filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.4));
+    z-index: 2;
 }
 
 #if_principal{
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    
 }
+
+.btn_geral{
+    background-color: rgb(39, 83, 170);
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin:10px;
+    transition: background-color 0.3s;
+}
+
+.btn_geral:hover{
+    background-color: rgb(36, 76, 154)
+}
+
+/** Novo */
+
+#novo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.elementosForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+    gap: 10px;
+    margin: 10px;
+}
+
+.botoesForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.campoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap:5px;
+}
+
+.campoForm input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+
