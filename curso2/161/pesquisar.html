@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pesquisar</h1>
+    <div id="pesquisa">
+        <div class="campoPesq">
+            <label for="f_pesq_id">ID</label>
+            <input type="radio" name="f_pesq" id="f_pesq_id" value="id">
+        </div>
+        <div class="campoPesq">
+            <label for="f_pesq_nome">Nome</label>
+            <input type="radio" name="f_pesq" id="f_pesq_nome" value="nome">
+        </div>
+        <div class="campoPesq">
+            <label for="f_pesq_telefone">Telefone</label>
+            <input type="radio" name="f_pesq" id="f_pesq_telefone" value="telefone">
+        </div>
+        <div class="campoPesq">
+            <label for="f_pesq_email">Email</label>
+            <input type="radio" name="f_pesq" id="f_pesq_email" value="email">
+        </div>
+        <div class="campoPesq">
+            <input type="text" name="f_txt_pesquisa" id="f_txt_pesquisa">
+        </div>
+        <div class="campoPesq">
+            <button id="btn_pesquisar">Pesquisar</button>
+        </div>
+    </div>
+
+    <div id="resultado">
+
+    </div>
    
 </body>
 </html>
