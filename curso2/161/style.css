@@ -121,8 +121,22 @@
 
 #pesquisa{
     display: flex;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
-    margin: 10px;
+    width: 100%;
+    gap: 30px;
+}
+
+.campoPesq{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type=text]{
+    padding: 5px;
+    border-radius: 5px;
 }
