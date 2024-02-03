@@ -184,6 +184,10 @@ input[type=text]{
     background-color: white;
 }
 
+.linhaDados:nth-child(odd){
+    background-color: #eee;
+}
+
 .coluna, .titulo{
     padding: 5px;
 }

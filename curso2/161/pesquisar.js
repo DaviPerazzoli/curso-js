@@ -25,6 +25,7 @@ btn_pesquisar.addEventListener('click', (evt)=>{
 
         f_txt_pesquisa.value='';
         resultado.innerHTML='';
+        resultado.style.border='1px solid #aaa';
         resultado.innerHTML='<div id="titulos" class="titulos">'+
             '<div class="linhaTitulos">'+
                 '<div class="titulo c1">ID</div>'+
@@ -69,7 +70,9 @@ btn_pesquisar.addEventListener('click', (evt)=>{
             const colData = document.createElement('div');
             colData.classList.add('coluna');
             colData.classList.add('c5');
-            colData.innerHTML=el.dt_dtnasc_contato.split('T')[0];
+            let array_data=el.dt_dtnasc_contato.split('T')[0].split('-');
+            
+            colData.innerHTML=`${array_data[2]}/${array_data[1]}/${array_data[0]}`;
             linha.appendChild(colData);
         });
     });
