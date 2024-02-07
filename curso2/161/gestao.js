@@ -58,6 +58,19 @@ const deletarContato=(id_contato)=>{
     })
 }
 
+const formatarData=(data, modo='-')=>{
+    let dataFormatada;
+    if(modo=='-'){
+        dataFormatada = data.split('/');
+        dataFormatada = `${dataFormatada[2]}-${dataFormatada[1]}-${dataFormatada[0]}`;
+    }else if(modo=='/'){
+        dataFormatada = data.split('-');
+        dataFormatada = `${dataFormatada[2]}/${dataFormatada[1]}/${dataFormatada[0]}`;
+    }
+    
+    return dataFormatada;
+}
+
 const preencherDGV=()=>{
     endpoint=`http://127.0.0.1:1880/contatos`;
     
@@ -103,9 +116,8 @@ const preencherDGV=()=>{
             const colData = document.createElement('div');
             colData.classList.add('coluna');
             colData.classList.add('c5');
-            let array_data=el.dt_dtnasc_contato.split('T')[0].split('-');
-            
-            colData.innerHTML=`${array_data[2]}/${array_data[1]}/${array_data[0]}`;
+            let dataCortada=el.dt_dtnasc_contato.split('T')[0];
+            colData.innerHTML=formatarData(dataCortada, '/');
             linha.appendChild(colData);
 
             const colFuncoes = document.createElement('div');
@@ -122,9 +134,7 @@ const preencherDGV=()=>{
                 nome.value = linhaContato.childNodes[1].innerHTML;
                 celular.value = linhaContato.childNodes[2].innerHTML;
                 email.value = linhaContato.childNodes[3].innerHTML;
-                let dataFormatada = linhaContato.childNodes[4].innerHTML.split('/');
-                dataFormatada = `${dataFormatada[2]}-${dataFormatada[1]}-${dataFormatada[0]}`;
-                dtnasc.value = dataFormatada;
+                dtnasc.value = formatarData(linhaContato.childNodes[4].innerHTML, '-');
 
                 popUp.classList.remove('oculto');
 
