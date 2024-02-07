@@ -147,6 +147,11 @@ btn_editar.addEventListener('click',()=>{
         return;
     }
 
+    if(!/^\d{2}\/\d{2}\/\d{4}$/.test(dtnasc.value)){
+        alert('Insira um valor de data válido (DD/MM/AAAA)');
+        return;
+    }
+
     let data = dtnasc.value.split('/');
     data = `${data[2]}-${data[1]}-${data[0]}`;
 

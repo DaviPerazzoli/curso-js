@@ -14,6 +14,11 @@ const resetCampos=()=>{
 }
 
 btn_gravar.addEventListener('click',(evt)=>{
+    if(!/^\d{2}\/\d{2}\/\d{4}$/.test(f_dtnasc.value)){
+        alert('Insira um valor de data válido (DD/MM/AAAA)');
+        return;
+    }
+
     const dados={
     "f_nome":f_nome.value,
     "f_telefone":f_telefone.value,
@@ -30,8 +35,8 @@ btn_gravar.addEventListener('click',(evt)=>{
     fetch(endpoint,cabecalho)
     .then(res=>{
         if(res.status==200){
-            console.log('ok');
             resetCampos();
+            alert('Contato gravado');
         }else{
             alert('Erro ao gravar dados');
         }
