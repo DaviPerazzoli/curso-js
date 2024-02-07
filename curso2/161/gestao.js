@@ -1,7 +1,65 @@
 const resultado = document.getElementById('resultado');
+const btn_editar = document.getElementById('btn_editar');
+const btn_cancelar_edicao = document.getElementById('btn_cancelar_edicao');
+const popUp = document.querySelector('#fundoPopup');
+const nome= document.querySelector('#txt_nome');
+const celular= document.querySelector('#txt_celular');
+const email= document.querySelector('#txt_email');
+const dtnasc= document.querySelector('#txt_dtnasc');
+let id = null;
+
+const editarContato=(id, nome, email, celular, dtnasc)=>{
+    const endpoint = 'http://127.0.0.1:1880/editarcontatos';
+    const dados={
+        id_contato: id,
+        nome_contato:nome,
+        email_contato:email,
+        celular_contato:celular,
+        dtnasc_contato:dtnasc
+    }
+    
+    const cabecalho={
+        method:'POST',
+        body: JSON.stringify(dados)
+    }
+    fetch(endpoint,cabecalho)
+    .then(res=>{
+        if(res.status == 200){
+            preencherDGV();
+            alert('Contato alterado com sucesso');
+        }else{
+            alert('Ocorreu um erro')
+        }
+    })
+    .catch(rejected=>{
+        alert('Erro de conexão');
+    })
+}
+
+const deletarContato=(id_contato)=>{
+    const endpoint = 'http://127.0.0.1:1880/deletarcontatos';
+
+    const cabecalho={
+        method:'POST',
+        body: id_contato
+    }
+
+    fetch(endpoint, cabecalho)
+    .then(res=>{
+        if(res.status == 200){
+            preencherDGV();
+            alert('Contato apagado com sucesso');
+        }else{
+            alert('Ocorreu um erro');
+        }
+    })
+    .catch(rejected=>{
+        alert('Erro de conexão');
+    })
+}
 
 const preencherDGV=()=>{
-    endpoint=`http://127.0.0.1:1880/pesquisartodoscontatos`;
+    endpoint=`http://127.0.0.1:1880/contatos`;
     
     fetch(endpoint)
     .then(res=>res.json())
@@ -12,6 +70,7 @@ const preencherDGV=()=>{
         }
 
         const dados = document.getElementById('dados');
+        dados.innerHTML='';
         res.forEach(el => {
             const linha = document.createElement('div');
             linha.setAttribute('class', 'linhaDados');
@@ -58,6 +117,14 @@ const preencherDGV=()=>{
             imgEditar.setAttribute('class', 'imgEditar');
             imgEditar.setAttribute('src', './imagens/edit.svg');
             imgEditar.addEventListener('click',(_evt)=>{
+                const linhaContato = _evt.target.parentNode.parentNode;
+                id=linhaContato.firstElementChild.innerHTML
+                nome.value = linhaContato.children[1].innerHTML;
+                celular.value = linhaContato.children[2].innerHTML;
+                email.value = linhaContato.children[3].innerHTML;
+                dtnasc.value = linhaContato.children[4].innerHTML;
+
+                popUp.classList.remove('oculto');
 
             })
             colFuncoes.appendChild(imgEditar);
@@ -66,11 +133,30 @@ const preencherDGV=()=>{
             imgDeletar.setAttribute('class', 'imgDeletar');
             imgDeletar.setAttribute('src', './imagens/delete.svg');
             imgDeletar.addEventListener('click',(_evt)=>{
-
+                const id_contato = _evt.target.parentNode.parentNode.firstElementChild.innerHTML;
+                deletarContato(id_contato);
             })
             colFuncoes.appendChild(imgDeletar);
         });
     });
 }
+
+btn_editar.addEventListener('click',()=>{
+    if(nome.value=='' ||email.value=='' || celular.value=='' || dtnasc.value==''){
+        alert('Por favor não deixe nenhum campo vazio');
+        return;
+    }
+
+    let data = dtnasc.value.split('/');
+    data = `${data[2]}-${data[1]}-${data[0]}`;
+
+    editarContato(id,nome.value,email.value,celular.value,data);
+
+    popUp.classList.add('oculto');
+})
+
+btn_cancelar_edicao.addEventListener('click',()=>{
+    popUp.classList.add('oculto');
+})
 
 preencherDGV();
