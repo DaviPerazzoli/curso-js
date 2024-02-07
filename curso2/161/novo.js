@@ -18,7 +18,7 @@ btn_gravar.addEventListener('click',(evt)=>{
     "f_nome":f_nome.value,
     "f_telefone":f_telefone.value,
     "f_email":f_email.value,
-    "f_dtnasc":dtnasc.value
+    "f_dtnasc":f_dtnasc.value
     }
 
     const cabecalho={
