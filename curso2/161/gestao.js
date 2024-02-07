@@ -119,10 +119,12 @@ const preencherDGV=()=>{
             imgEditar.addEventListener('click',(_evt)=>{
                 const linhaContato = _evt.target.parentNode.parentNode;
                 id=linhaContato.firstElementChild.innerHTML
-                nome.value = linhaContato.children[1].innerHTML;
-                celular.value = linhaContato.children[2].innerHTML;
-                email.value = linhaContato.children[3].innerHTML;
-                dtnasc.value = linhaContato.children[4].innerHTML;
+                nome.value = linhaContato.childNodes[1].innerHTML;
+                celular.value = linhaContato.childNodes[2].innerHTML;
+                email.value = linhaContato.childNodes[3].innerHTML;
+                let dataFormatada = linhaContato.childNodes[4].innerHTML.split('/');
+                dataFormatada = `${dataFormatada[2]}-${dataFormatada[1]}-${dataFormatada[0]}`;
+                dtnasc.value = dataFormatada;
 
                 popUp.classList.remove('oculto');
 
