@@ -58,7 +58,7 @@ const deletarContato=(id_contato)=>{
     })
 }
 
-const formatarData=(data, modo='-')=>{
+export const formatarData=(data, modo='-')=>{
     let dataFormatada;
     if(modo=='-'){
         dataFormatada = data.split('/');
@@ -72,7 +72,7 @@ const formatarData=(data, modo='-')=>{
 }
 
 const preencherDGV=()=>{
-    endpoint=`http://127.0.0.1:1880/contatos`;
+    const endpoint=`http://127.0.0.1:1880/contatos`;
     
     fetch(endpoint)
     .then(res=>res.json())
@@ -137,7 +137,6 @@ const preencherDGV=()=>{
                 dtnasc.value = formatarData(linhaContato.childNodes[4].innerHTML, '-');
 
                 popUp.classList.remove('oculto');
-
             })
             colFuncoes.appendChild(imgEditar);
 
