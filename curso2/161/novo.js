@@ -14,16 +14,11 @@ const resetCampos=()=>{
 }
 
 btn_gravar.addEventListener('click',(evt)=>{
-    if(!/^\d{2}\/\d{2}\/\d{4}$/.test(f_dtnasc.value)){
-        alert('Insira um valor de data válido (DD/MM/AAAA)');
-        return;
-    }
-
     const dados={
     "f_nome":f_nome.value,
     "f_telefone":f_telefone.value,
     "f_email":f_email.value,
-    "f_dtnasc":f_dtnasc.value
+    "f_dtnasc":dtnasc.value
     }
 
     const cabecalho={
