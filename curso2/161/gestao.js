@@ -1,3 +1,5 @@
+import {formatarData} from './funcoesAgenda.js';
+
 const resultado = document.getElementById('resultado');
 const btn_editar = document.getElementById('btn_editar');
 const btn_cancelar_edicao = document.getElementById('btn_cancelar_edicao');
@@ -56,19 +58,6 @@ const deletarContato=(id_contato)=>{
     .catch(rejected=>{
         alert('Erro de conexão');
     })
-}
-
-export const formatarData=(data, modo='-')=>{
-    let dataFormatada;
-    if(modo=='-'){
-        dataFormatada = data.split('/');
-        dataFormatada = `${dataFormatada[2]}-${dataFormatada[1]}-${dataFormatada[0]}`;
-    }else if(modo=='/'){
-        dataFormatada = data.split('-');
-        dataFormatada = `${dataFormatada[2]}/${dataFormatada[1]}/${dataFormatada[0]}`;
-    }
-    
-    return dataFormatada;
 }
 
 const preencherDGV=()=>{

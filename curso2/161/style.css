@@ -292,3 +292,24 @@ input[type=text]{
         transform: scale(1);
     }
 }
+
+/** Filtrar */
+
+.filtro{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap:10px;
+}
+
+.filtro input{
+    padding: 6px !important;
+    border-radius: 5px !important;
+}
+
+.filtro .campoForm{
+    width: 49%;
+}

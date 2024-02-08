@@ -4,9 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filtrar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div id="filtro" class="filtro">
+        <div class="campoForm">
+            <label for="f_filtro_id">ID</label>
+            <input type="number" name="f_filtro_id" id="f_filtro_id" min="1">
+        </div>
+        <div class="campoForm">
+            <label for="f_filtro_nome">Nome</label>
+            <input type="text" name="f_filtro_nome" id="f_filtro_nome">
+        </div>
+        <div class="campoForm">
+            <label for="f_filtro_celular">Telefone</label>
+            <input type="text" name="f_filtro_celular" id="f_filtro_celular">
+        </div>
+        <div class="campoForm">
+            <label for="f_filtro_email">Email</label>
+            <input type="text" name="f_filtro_email" id="f_filtro_email">
+        </div>
+        <div class="campoForm">
+            <label for="f_filtro_dtnasc">Data de Nascimento</label>
+            <input type="date" name="f_filtro_dtnasc" id="f_filtro_dtnasc">
+        </div>
+        
+    </div>
+    <div id="resultado" class="resultado">
+        <div id="titulos" class="titulos">
+            <div class="linhaTitulos">
+                <div class="titulo c1">ID</div>
+                <div class="titulo c2">Nome</div>
+                <div class="titulo c3">Telefone</div>
+                <div class="titulo c4">Email</div>
+                <div class="titulo c5">Data de Nascimento</div>
+            </div>
+        </div>
+        <div id="dados" class="dados">
+        </div>
+    </div>
+
     <script src="filtrar.js" type="module"></script>
 </body>
 </html>
