@@ -9,6 +9,12 @@ btn_pesquisar.addEventListener('click', (evt)=>{
         f_txt_pesquisa.focus();
         return;
     }
+
+    if(!document.querySelector('input[name=f_pesq]:checked')){
+        alert('Selecione pelo que pesquisar');
+        return;
+    }
+
     let f_pesq = document.querySelector('input[name=f_pesq]:checked').value;
     if(f_pesq=='id'){
         f_pesq='contato';
